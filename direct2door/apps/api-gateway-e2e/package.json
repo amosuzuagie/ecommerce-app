@@ -1,0 +1,26 @@
+{
+  "name": "@direct2door/api-gateway-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@direct2door/api-gateway"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/api-gateway-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@direct2door/api-gateway:build",
+          "@direct2door/api-gateway:serve"
+        ]
+      }
+    }
+  }
+}
